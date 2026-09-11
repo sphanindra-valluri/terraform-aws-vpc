@@ -3,7 +3,7 @@ variable "project" {
 }
 
 variable "environment" {
-  type = string
+    type = string
 }
 
 variable "vpc_cider" {
@@ -12,6 +12,11 @@ variable "vpc_cider" {
 }
 
 variable "vpc_tags" {
-  type = map
-  default = {}
+    type = map
+    default = {}
+}
+
+variable "igw_tags" {
+    type = map
+    default = {}
 }
