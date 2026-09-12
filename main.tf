@@ -6,7 +6,7 @@ resource "aws_vpc" "main" {
   tags = local.vpc_final_tags
 }
 
-resource "aws_internet_gateway" "gw" {
+resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id #VPC association
 
   tags = local.igw_final_tags
@@ -106,7 +106,7 @@ resource "aws_route_table" "database" {
 resource "aws_route" "public" {
   route_table_id            = aws_route_table.public.id
   destination_cidr_block    = "0.0.0.0/0"
-  gateway_id = aws_internet_gateway.gw.main.id
+  gateway_id = aws_internet_gateway.main.id
 }
 
 resource "aws_eip" "nat" {
